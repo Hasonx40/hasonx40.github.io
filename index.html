@@ -2,10 +2,411 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Developer Page - MindFlip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindFlip: Card Kingdoms — Official Game Studio & Support</title>
+    <meta name="description" content="Official website for MindFlip: Card Kingdoms on iOS & iPadOS. Explore 5 3D Card Realms, 75 Levels, Bluetooth & Online Multiplayer Duels, Support, and Privacy Policy.">
+    <meta name="keywords" content="MindFlip, Card Kingdoms, iOS Game, 3D Card Puzzle, Hasan Orçun Özkaya, App Store, Brain Training">
+    <meta name="author" content="Hasan Orçun Özkaya">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hasonx40.github.io/">
+    <style>
+        :root {
+            --bg-dark: #090514;
+            --bg-card: rgba(26, 17, 52, 0.82);
+            --accent-gold: #ffcc33;
+            --accent-purple: #9d4edd;
+            --accent-cyan: #00f5d4;
+            --text-main: #f8f7ff;
+            --text-muted: #b8b2d1;
+            --border-glow: rgba(255, 204, 51, 0.25);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at 50% 0%, #24114d 0%, var(--bg-dark) 65%);
+            color: var(--text-main);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+        /* Sticky Navbar */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(9, 5, 20, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .nav-container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .brand-badge {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent-gold), #ff7b00);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 15px rgba(255, 204, 51, 0.35);
+        }
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+        /* Hero Section */
+        .hero {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 72px 24px 56px;
+            text-align: center;
+        }
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 999px;
+            background: rgba(157, 78, 221, 0.2);
+            border: 1px solid var(--border-glow);
+            color: var(--accent-gold);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 900;
+            line-height: 1.12;
+            margin-bottom: 18px;
+            background: linear-gradient(90deg, #ffffff, var(--accent-gold), #d8b4fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            max-width: 720px;
+            margin: 0 auto 32px;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+        }
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), #ff9900);
+            color: #120924;
+            font-weight: 800;
+            padding: 14px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            box-shadow: 0 8px 25px rgba(255, 204, 51, 0.35);
+            transition: transform 0.2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            font-weight: 700;
+            padding: 14px 26px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+        /* Grid Sections */
+        .section {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .section-sub {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 36px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+        }
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+        }
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.96rem;
+        }
+        /* Policy & Legal Box */
+        .legal-box {
+            background: rgba(18, 11, 38, 0.92);
+            border: 1px solid rgba(157, 78, 221, 0.35);
+            border-radius: 22px;
+            padding: 36px;
+            margin-top: 24px;
+        }
+        .legal-box h2 {
+            color: var(--accent-gold);
+            font-size: 1.65rem;
+            margin-bottom: 16px;
+        }
+        .legal-box h3 {
+            color: #fff;
+            margin: 22px 0 8px;
+            font-size: 1.15rem;
+        }
+        .legal-box p, .legal-box li {
+            color: var(--text-muted);
+            font-size: 0.96rem;
+            margin-bottom: 10px;
+        }
+        .legal-box ul {
+            padding-left: 20px;
+        }
+        /* FAQ */
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 16px;
+        }
+        .faq-item h4 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        footer a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+        code {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 3px 8px;
+            border-radius: 6px;
+            color: var(--accent-cyan);
+        }
+    </style>
 </head>
 <body>
-    <h1>MindFlip: Card Kingdoms</h1>
-    <p>Official Developer Website</p>
+
+<header>
+    <div class="nav-container">
+        <a href="#top" class="brand">
+            <span class="brand-badge">👑</span>
+            <span>MindFlip: Card Kingdoms</span>
+        </a>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#kingdoms">3D Realms</a>
+            <a href="#support">Support & FAQ</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="/app-ads.txt">app-ads.txt</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="top">
+    <div class="pill">🍏 AVAILABLE NOW ON THE APPLE APP STORE (iOS & iPadOS)</div>
+    <h1>Master the 3D Card Kingdoms</h1>
+    <p>
+        <strong>MindFlip: Card Kingdoms</strong> is a next-generation 3D card-matching and brain-training adventure developed by <strong>Hasan Orçun Özkaya</strong>. Conquer 75 handcrafted levels across 3 dynamic chapters, survive card storms, and challenge friends in real-time Bluetooth & Online Multiplayer Duels!
+    </p>
+    <div class="cta-group">
+        <a href="https://apps.apple.com/app/mindflip-card-kingdoms/id6743375890" class="btn-primary">🍏 Download on the App Store</a>
+        <a href="#support" class="btn-secondary">💬 Player Support & Contact</a>
+    </div>
+</section>
+
+<section class="section" id="features">
+    <h2 class="section-title">Game Features & Modes</h2>
+    <p class="section-sub">Engineered natively with SwiftUI, SceneKit 3D, Apple GameKit, and MultipeerConnectivity for an ultra-responsive 60 FPS gaming experience.</p>
+    <div class="grid-3">
+        <div class="card">
+            <div class="card-icon">🧙‍♂️</div>
+            <h3>5 Interactive 3D Themes</h3>
+            <p>Unlock and switch anytime between <strong>Magic & Mystery</strong>, <strong>Royal Chess 3D</strong>, <strong>Cosmic Galaxy</strong>, <strong>Joyful Toys</strong>, and <strong>Gourmet Delights</strong>—rendered with real-time 3D USDZ models.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">⚔️</div>
+            <h3>Live Multiplayer Duels</h3>
+            <p>Play head-to-head on the same screen, connect offline with nearby friends via <strong>Bluetooth / Local Wi-Fi</strong>, or compete globally through <strong>Apple Game Center</strong> matchmaking.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🌪️</div>
+            <h3>3 Chapters & 75 Levels</h3>
+            <p>Progress through <em>Classic Speed</em>, <em>Storm & Perfection</em> (periodic card shuffles), and <em>Target Hunter & Row Swap</em> mechanics with strategic Peek and Auto-Match Jokers.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="kingdoms">
+    <h2 class="section-title">3 Epic Chapters (75 Levels)</h2>
+    <p class="section-sub">Complete the first 7 levels of a chapter to unlock the next realm, or strive for a 5-Star Grandmaster rating on all 75 stages!</p>
+    <div class="grid-3">
+        <div class="card">
+            <h3>Chapter I: Classic Speed (Levels 1–25)</h3>
+            <p>Build your visual recall and combo streaks. Watch out for the mid-round Tornado Shuffle that repositions unmatched cards when you least expect it!</p>
+        </div>
+        <div class="card">
+            <h3>Chapter II: Storm & Perfection (Levels 26–50)</h3>
+            <p>Every 15 seconds, a storm shuffles the board! With a strict 3-mistake limit, precision and focus are your greatest allies.</p>
+        </div>
+        <div class="card">
+            <h3>Chapter III: Target Hunter (Levels 51–75)</h3>
+            <p>Locate the highlighted target pair first, then adapt immediately as the top and bottom card rows swap places mid-battle!</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="support">
+    <h2 class="section-title">Official Support & FAQ (Destek Merkezi)</h2>
+    <p class="section-sub">Need assistance with MindFlip: Card Kingdoms? Check our frequently asked questions below or contact the developer directly.</p>
+
+    <div class="faq-item">
+        <h4>Q: How do I unlock Chapter 2 and Chapter 3?</h4>
+        <p>Completing the first 7 levels of Chapter 1 (Levels 1–7) automatically unlocks Chapter 2. Completing the first 7 levels of Chapter 2 (Levels 26–32) unlocks Chapter 3.</p>
+    </div>
+    <div class="faq-item">
+        <h4>Q: How does Nearby Bluetooth Duel work without an internet connection?</h4>
+        <p>Open <strong>Multiplayer Arena ➔ Nearby Device (Bluetooth)</strong> on two iPhones or iPads. One player taps "Create Room (Host)" and the other taps "Join Room". Grant Local Network & Bluetooth permissions when prompted.</p>
+    </div>
+    <div class="faq-item">
+        <h4>Q: How can I earn more "Find Pair" (Auto-Match) Jokers?</h4>
+        <p>You earn +1 Auto-Match Joker automatically every time you achieve two consecutive 5-Star level ratings, or by tapping the "+1 Joker" rewarded video button on the game board.</p>
+    </div>
+    <div class="faq-item">
+        <h4>Q: Developer Contact & Technical Support (İletişim)</h4>
+        <p>
+            <strong>Developer:</strong> Hasan Orçun Özkaya<br>
+            <strong>Bundle Identifier:</strong> <code>com.bartuozkaya.mindflip</code><br>
+            <strong>Support Email:</strong> <a href="mailto:bartuozkaya@gmail.com" style="color: var(--accent-gold);">bartuozkaya@gmail.com</a><br>
+            <strong>Response Time:</strong> Within 24–48 hours (English & Turkish support available).
+        </p>
+    </div>
+</section>
+
+<section class="section" id="privacy">
+    <div class="legal-box">
+        <h2>Privacy Policy & Data Protection (Gizlilik Politikası)</h2>
+        <p><strong>Effective Date:</strong> November 10, 2026 &nbsp;|&nbsp; <strong>Application:</strong> MindFlip: Card Kingdoms (iOS & iPadOS)</p>
+
+        <h3>1. Overview & Commitment to Privacy</h3>
+        <p>
+            Hasan Orçun Özkaya ("Developer", "we", "our", or "us") respects your privacy. <strong>MindFlip: Card Kingdoms</strong> is designed as a family-friendly brain-training game. We do not require account registration, and we do not collect, store, or sell personal identity information such as your real name, home address, phone number, or email address on any external server.
+        </p>
+
+        <h3>2. Local Data Storage</h3>
+        <p>
+            Your player profile nicknames, level progression, star ratings, and sound preferences are stored locally on your device using Apple's standard <code>UserDefaults</code> storage. Deleting the app removes this local data permanently.
+        </p>
+
+        <h3>3. Advertising, Google AdMob & App Tracking Transparency (ATT)</h3>
+        <p>
+            To keep MindFlip: Card Kingdoms free to play, we use <strong>Google AdMob</strong> (<code>ca-app-pub-1191704940665935</code>) to display banner, interstitial, and optional rewarded video advertisements.
+        </p>
+        <ul>
+            <li>On iOS/iPadOS 14.5+, our app requests your permission via Apple's <strong>App Tracking Transparency (ATT)</strong> framework before accessing your device's Advertising Identifier (IDFA).</li>
+            <li>If you select <strong>"Ask App Not to Track"</strong>, Google AdMob will only serve non-personalized (contextual) advertisements and will not track your activity across other companies' apps or websites.</li>
+            <li>Our authorized digital sellers declaration is publicly verifiable at <a href="https://hasonx40.github.io/app-ads.txt" style="color: var(--accent-gold);">https://hasonx40.github.io/app-ads.txt</a>.</li>
+        </ul>
+
+        <h3>4. Apple Game Center & Local Bluetooth Multiplayer</h3>
+        <ul>
+            <li><strong>Apple Game Center:</strong> When you open the Global Leaderboard or Online Matchmaking, Apple's GameKit framework authenticates your Game Center nickname and submits your high score governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" style="color: var(--accent-gold);">Apple's Privacy Policy</a>.</li>
+            <li><strong>Bluetooth / Local Wi-Fi Duels:</strong> Nearby device connections use Apple's <code>MultipeerConnectivity</code> framework solely to synchronize card flips and scores between two consenting nearby devices. No chat, voice, or personal files are transmitted.</li>
+        </ul>
+
+        <h3>5. Children's Privacy (COPPA & GDPR)</h3>
+        <p>
+            We do not knowingly collect personal data from children under the age of 13. All gameplay features are safe for players of all ages.
+        </p>
+
+        <h3>6. Contact Us</h3>
+        <p>
+            If you have any questions about this Privacy Policy or data practices, please contact:<br>
+            <strong>Hasan Orçun Özkaya</strong> — Email: <a href="mailto:bartuozkaya@gmail.com" style="color: var(--accent-gold);">bartuozkaya@gmail.com</a>
+        </p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Hasan Orçun Özkaya. All rights reserved. • <strong>MindFlip: Card Kingdoms</strong> for iOS & iPadOS.</p>
+    <p style="margin-top: 8px;">
+        <a href="https://hasonx40.github.io/">Home</a> &nbsp;•&nbsp;
+        <a href="https://hasonx40.github.io/privacy-policy.html">Privacy Policy</a> &nbsp;•&nbsp;
+        <a href="https://hasonx40.github.io/app-ads.txt">app-ads.txt</a> &nbsp;•&nbsp;
+        <a href="mailto:bartuozkaya@gmail.com">Contact Support</a>
+    </p>
+</footer>
+
 </body>
 </html>
